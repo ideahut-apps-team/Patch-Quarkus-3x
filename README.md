@@ -176,4 +176,4 @@ Berikut adalah daftar argument _build_ __Native Image__ yang dibutuhkan, sesuai 
 
 ### Template
 
-- [Quarkus 3x](https://github.com/thomson470/Template-Quarkus-3x)
+- [Quarkus 3x](https://github.com/ideahut-apps-team/Template-Quarkus-3x)
