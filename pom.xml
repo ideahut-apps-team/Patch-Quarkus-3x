@@ -10,35 +10,6 @@
 
 	<name>Patch-Quarkus-3x</name>
 	<description>Patch Quarkus 3x</description>
-	<url>https://github.com/ideahut-apps-team/Ideahut-Quarkus</url>
-	
-	<licenses>
-		<license>
-			<name>Apache License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-	
-	<developers>
-		<developer>
-			<id>ideahut</id>
-			<name>ideahut</name>
-			<email>ideahut.apps.team@gmail.com</email>
-			<organization>ideahut</organization>
-			<organizationUrl>https://github.com/ideahut-apps-team</organizationUrl>
-			<roles>
-				<role>architect</role>
-				<role>developer</role>
-			</roles>
-		</developer>
-	</developers>
-	
-	<scm>
-		<connection>scm:git:git@github.com:ideahut-apps-team/Ideahut-Quarkus.git</connection>
-		<developerConnection>scm:git:git@github.com:ideahut-apps-team/Ideahut-Quarkus.git</developerConnection>
-		<url>git@github.com:ideahut-apps-team/Ideahut-Quarkus.git</url>
-	</scm>
 
 	<properties>
 		<maven.test.skip>true</maven.test.skip>
