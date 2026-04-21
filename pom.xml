@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>net.ideahut</groupId>
+	<artifactId>Patch-Quarkus-3x</artifactId>
+	<version>26.04.04</version>
+	<packaging>jar</packaging>
+
+	<name>Patch-Quarkus-3x</name>
+	<description>Patch Quarkus 3x</description>
+	<url>https://github.com/ideahut-apps-team/Ideahut-Quarkus</url>
+	
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	
+	<developers>
+		<developer>
+			<id>ideahut</id>
+			<name>ideahut</name>
+			<email>ideahut.apps.team@gmail.com</email>
+			<organization>ideahut</organization>
+			<organizationUrl>https://github.com/ideahut-apps-team</organizationUrl>
+			<roles>
+				<role>architect</role>
+				<role>developer</role>
+			</roles>
+		</developer>
+	</developers>
+	
+	<scm>
+		<connection>scm:git:git@github.com:ideahut-apps-team/Ideahut-Quarkus.git</connection>
+		<developerConnection>scm:git:git@github.com:ideahut-apps-team/Ideahut-Quarkus.git</developerConnection>
+		<url>git@github.com:ideahut-apps-team/Ideahut-Quarkus.git</url>
+	</scm>
+
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <java.version>17</java.version>
+		
+		<!-- ideahut -->
+		<version.aws-sdk-s3>1.12.793</version.aws-sdk-s3>
+		<version.commons-dbcp2>2.10.0</version.commons-dbcp2>
+		<version.fory>0.15.0</version.fory>
+		<version.htmlunit>4.11.1</version.htmlunit>
+		<version.jasperreports>6.21.5</version.jasperreports>
+		<version.kryo>5.6.2</version.kryo>
+		<version.jakarta.mail>2.0.2</version.jakarta.mail>
+		
+		<!-- external -->
+		<version.jboss-vfs>3.3.2.Final</version.jboss-vfs>
+		<version.jpountz-lz4>1.3.0</version.jpountz-lz4>
+		<version.metrics-healthchecks>3.0.2</version.metrics-healthchecks>
+		<version.objenesis>3.5</version.objenesis>
+		<version.reflections>0.10.2</version.reflections>
+		<version.transaction-api>1.1</version.transaction-api>
+		
+		
+	</properties>
+
+	<dependencies>
+		
+		<!--
+		  IDEAHUT
+		  - dibutuhkan untuk membuat native image
+		  - tambah <exclusion> jika sudah didefinisikan di dependencies project
+		-->
+		
+		<!-- AWS S3 -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>${version.aws-sdk-s3}</version>
+		</dependency>
+
+		<!-- FORY -->
+		<dependency>
+			<groupId>org.apache.fory</groupId>
+			<artifactId>fory-core</artifactId>
+			<version>${version.fory}</version>
+		</dependency>
+
+		<!-- HTML UNIT -->
+		<dependency>
+			<groupId>org.htmlunit</groupId>
+			<artifactId>htmlunit</artifactId>
+			<version>${version.htmlunit}</version>
+		</dependency>
+		
+		<!-- JASPER REPORT -->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+		
+		<!-- KRYO -->
+		<dependency>
+		    <groupId>com.esotericsoftware</groupId>
+		    <artifactId>kryo</artifactId>
+		    <version>${version.kryo}</version>
+		</dependency>
+		
+		<!-- REFLECTIONS -->
+		<dependency>
+		    <groupId>org.reflections</groupId>
+		    <artifactId>reflections</artifactId>
+		    <version>${version.reflections}</version>
+		</dependency>
+		
+		<!-- COMMON DBCP2 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>${version.commons-dbcp2}</version>
+		</dependency>
+		
+		<!-- MAIL -->
+		<dependency>
+		    <groupId>com.sun.mail</groupId>
+		    <artifactId>jakarta.mail</artifactId>
+		    <version>${version.jakarta.mail}</version>
+		</dependency>
+		
+		
+		<!--
+		  EXTERNAL (library tambahan)
+		  - hibernate
+		  - resource
+		-->
+		
+		<!-- JAVAX TRANSACTION -->
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>transaction-api</artifactId>
+			<version>${version.transaction-api}</version>
+		</dependency>
+		
+		<!-- CODAHALE METRICS -->
+		<dependency>
+			<groupId>com.codahale.metrics</groupId>
+			<artifactId>metrics-healthchecks</artifactId>
+			<version>${version.metrics-healthchecks}</version>
+		</dependency>
+		
+		<!-- JBOSS VFS -->
+		<dependency>
+			<groupId>org.jboss</groupId>
+			<artifactId>jboss-vfs</artifactId>
+			<version>${version.jboss-vfs}</version>
+		</dependency>
+		
+		<!-- JPOUNTZ LZ4 -->
+		<dependency>
+			<groupId>net.jpountz.lz4</groupId>
+			<artifactId>lz4</artifactId>
+			<version>${version.jpountz-lz4}</version>
+		</dependency>
+		
+		<!-- OBJENESIS -->
+		<dependency>
+		    <groupId>org.objenesis</groupId>
+		    <artifactId>objenesis</artifactId>
+		    <version>${version.objenesis}</version>
+		</dependency>
+		
+	</dependencies>
+
+</project>
