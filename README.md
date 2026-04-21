@@ -1,6 +1,6 @@
 # Patch Quarkus 3x&nbsp;&nbsp;<img height="32" src="https://github.com/ideahut-apps-team/Ideahut-Quarkus/blob/main/docs/assets/ideahut.png?raw=true" alt="">&nbsp;<img height="32" src="https://github.com/ideahut-apps-team/Ideahut-Quarkus/blob/main/docs/assets/quarkus.png?raw=true" alt="">
 
-* Dibutuhkan untuk _build_ __Native Image__, terkait dengan library eksternal yang dibutuhkan oleh library __Ideahut__.
+* Untuk _build_ __Native Image__, terkait dengan library eksternal yang dibutuhkan oleh library __Ideahut__.
 * Tambahkan _dependency_ ke _profile_ __'native'__.
     ```xml
     <profiles>
@@ -44,22 +44,20 @@
         <artifactId>Patch-Quarkus-3x</artifactId>
         <version>${version.ideahut}</version>
         <exclusions>
-            <exclusion>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>jakarta.mail</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>net.sf.jasperreports</groupId>
-                <artifactId>jasperreports</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.esotericsoftware</groupId>
-                <artifactId>kryo</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.apache.fory</groupId>
-                <artifactId>fory-core</artifactId>
-            </exclusion>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.zaxxer</groupId>
+                    <artifactId>HikariCP</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.sun.mail</groupId>
+                    <artifactId>jakarta.mail</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.sf.jasperreports</groupId>
+                    <artifactId>jasperreports</artifactId>
+                </exclusion>
+            </exclusions>
         </exclusions>
     </dependency>
     ```
@@ -76,6 +74,10 @@
     <exclusion>
         <groupId>org.htmlunit</groupId>
         <artifactId>htmlunit</artifactId>
+    </exclusion>
+    <exclusion>
+        <groupId>com.zaxxer</groupId>
+        <artifactId>HikariCP</artifactId>
     </exclusion>
     <exclusion>
         <groupId>net.sf.jasperreports</groupId>
@@ -118,6 +120,51 @@
         <artifactId>objenesis</artifactId>
     </exclusion>
     ```
+
+## 
+
+### Build Arguments
+Berikut adalah daftar argument _build_ __Native Image__ yang dibutuhkan, sesuai dengan modul atau fitur yang digunakan di project.
+
+* COMMON
+    ```md
+    --initialize-at-build-time=io.vertx.core,
+    --initialize-at-run-time=com.sun.jmx,
+    --initialize-at-build-time=com.sun.jmx.mbeanserver,
+    --trace-object-instantiation=com.sun.jmx.mbeanserver.JmxMBeanServer,
+    --trace-object-instantiation=sun.management.MemoryPoolImpl,
+    ```
+* IDEAHUT
+    ```md
+    --initialize-at-run-time=net.ideahut.quarkus,
+    --initialize-at-build-time=net.ideahut.quarkus.admin,
+    --initialize-at-build-time=net.ideahut.quarkus.object,
+    --initialize-at-build-time=net.ideahut.quarkus.support,
+    ```
+* FASTER-XML
+    ```md
+    --initialize-at-build-time=com.fasterxml,
+    --initialize-at-build-time=com.fasterxml.jackson.databind,
+    ```
+* JSON-WEB-TOKEN
+    ```md
+    --initialize-at-run-time=io.jsonwebtoken,
+    ```
+* HIBERNATE
+    ```md
+    --initialize-at-run-time=oracle,
+    --initialize-at-build-time=oracle.i18n.text,
+    --initialize-at-build-time=oracle.i18n.util.builder,
+    --initialize-at-run-time=org.apache.commons.dbcp2,
+    --initialize-at-run-time=org.jose4j,
+    --initialize-at-run-time=oracle.jdbc.driver.AbstractShardingConnection,
+    --initialize-at-run-time=org.hibernate.dialect.OracleOsonJacksonHelper$FactoryHolder,
+    --initialize-at-run-time=org.hibernate.type.format.jakartajson.JakartaJsonIntegration,
+    --initialize-at-run-time=org.hibernate.dialect.OracleOsonJdbcType,
+    --initialize-at-run-time=org.hibernate.type.format.jakartajson,
+    ```
+
+##
 
 > [!TIP]  
 > __Repository ini bisa diedit agar sesuai dengan project yang dikerjakan.__

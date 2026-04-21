@@ -52,6 +52,7 @@
 		<version.aws-sdk-s3>1.12.793</version.aws-sdk-s3>
 		<version.commons-dbcp2>2.10.0</version.commons-dbcp2>
 		<version.fory>0.15.0</version.fory>
+		<version.hikari>7.0.2</version.hikari>
 		<version.htmlunit>4.11.1</version.htmlunit>
 		<version.jasperreports>6.21.5</version.jasperreports>
 		<version.kryo>5.6.2</version.kryo>
@@ -88,6 +89,19 @@
 			<groupId>org.apache.fory</groupId>
 			<artifactId>fory-core</artifactId>
 			<version>${version.fory}</version>
+		</dependency>
+		
+		<!-- HIKARI -->
+		<dependency>
+		    <groupId>com.zaxxer</groupId>
+		    <artifactId>HikariCP</artifactId>
+		    <version>${version.hikari}</version>
+		    <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
 		</dependency>
 
 		<!-- HTML UNIT -->
