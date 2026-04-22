@@ -163,7 +163,16 @@ Berikut adalah daftar _build arguments_ __Native Image__ yang dibutuhkan, sesuai
     --initialize-at-run-time=org.hibernate.dialect.OracleOsonJdbcType,
     --initialize-at-run-time=org.hibernate.type.format.jakartajson,
     ```
-
+* QUARTZ
+    ```md
+    --initialize-at-run-time=java.rmi.server.ObjID,
+    --initialize-at-run-time=sun.rmi.transport.ObjectTable,
+    --initialize-at-run-time=sun.rmi.transport.Transport,
+    --initialize-at-run-time=sun.rmi.transport.tcp.TCPEndpoint,
+    --initialize-at-run-time=sun.rmi.registry.RegistryImpl,
+    --initialize-at-run-time=sun.rmi.transport.DGCImpl,
+    --initialize-at-run-time=sun.rmi.transport.DGCClient,
+    ```
 ##
 
 > [!TIP]  
