@@ -124,7 +124,7 @@
 ## 
 
 ### Build Arguments
-Berikut adalah daftar argument _build_ __Native Image__ yang dibutuhkan, sesuai dengan modul atau fitur yang digunakan di project.
+Berikut adalah daftar _build arguments_ __Native Image__ yang dibutuhkan, sesuai dengan modul atau fitur yang digunakan di project.
 
 * COMMON
     ```md
