@@ -5,7 +5,7 @@
 
 	<groupId>net.ideahut</groupId>
 	<artifactId>Patch-Quarkus-3x</artifactId>
-	<version>26.04.04</version>
+	<version>26.06.20</version>
 	<packaging>jar</packaging>
 
 	<name>Patch-Quarkus-3x</name>
